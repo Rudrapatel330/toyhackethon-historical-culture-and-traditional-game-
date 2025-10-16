@@ -1,0 +1,1314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bharatiya Culture - Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700&family=Hind:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #FF9933;
+            --secondary: #128807;
+            --accent: #FFD700;
+            --light: #FFF9E6;
+            --dark: #2E1A0F;
+            --text: #333333;
+            --level1: #FF6B6B;
+            --level2: #4ECDC4;
+            --level3: #FFD166;
+            --level4: #06D6A0;
+            --level5: #118AB2;
+            --level6: #073B4C;
+            --level7: #9B5DE5;
+            --level8: #F15BB5;
+            --level9: #00BBF9;
+            --level10: #00F5D4;
+            --level11: #FB5607;
+            --level12: #8338EC;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Hind', sans-serif;
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Baloo 2', cursive;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        .navbar {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+        }
+
+        .logo-icon {
+            font-size: 2rem;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: white;
+            text-shadow: 3px 3px 0 var(--accent);
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            color: white;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--secondary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: var(--dark);
+        }
+
+        /* About Section */
+        .about {
+            padding: 4rem 0;
+            background: rgba(255, 255, 255, 0.9);
+            margin: 2rem auto;
+            border-radius: 25px;
+            max-width: 1200px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            color: var(--dark);
+        }
+
+        .about-text {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature {
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature h3 {
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+
+        /* Mini Games Section */
+        .mini-games {
+            padding: 4rem 0;
+            background: rgba(255, 255, 255, 0.9);
+            margin: 2rem auto;
+            border-radius: 25px;
+            max-width: 1200px;
+        }
+
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .game-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 4px solid transparent;
+        }
+
+        .game-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+            border-color: var(--primary);
+        }
+
+        .game-icon {
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+        }
+
+        .game-info {
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .game-title {
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+            font-size: 1.5rem;
+        }
+
+        .game-description {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        /* Game Modal */
+        .game-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 20px;
+            max-width: 900px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal-header {
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-title {
+            color: white;
+            font-size: 1.8rem;
+            margin: 0;
+        }
+
+        .close-modal {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .close-modal:hover {
+            transform: scale(1.2);
+        }
+
+        .modal-body {
+            padding: 2rem;
+        }
+
+        /* Painting Game Styles */
+        .game-container {
+            max-width: 900px;
+            width: 100%;
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            padding: 20px;
+            margin: 0 auto;
+        }
+
+        .game-header {
+            text-align: center;
+            padding: 20px 0;
+            background: linear-gradient(90deg, #ff9a9e 0%, #fad0c4 100%);
+            margin: -20px -20px 20px -20px;
+            border-radius: 20px 20px 0 0;
+        }
+
+        .game-title {
+            color: #fff;
+            font-size: 2.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            margin-bottom: 10px;
+        }
+
+        .game-subtitle {
+            color: #fff;
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .game-area {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .canvas-container {
+            flex: 1;
+            min-width: 300px;
+            border: 4px dashed #ff9a9e;
+            border-radius: 15px;
+            overflow: hidden;
+            background-color: #fff;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        #drawingCanvas {
+            display: block;
+            background-color: white;
+            cursor: crosshair;
+        }
+
+        .controls {
+            flex: 0 0 250px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .control-section {
+            background-color: #f8f9fa;
+            border-radius: 15px;
+            padding: 15px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .game-section-title {
+            color: #ff6b6b;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+            border-bottom: 2px solid #ffd3d3;
+            padding-bottom: 5px;
+        }
+
+        .colors {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .color-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 3px solid white;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .color-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 5px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .color-btn.active {
+            transform: scale(1.15);
+            box-shadow: 0 0 0 3px #333, 0 5px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .shapes {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .shape-btn {
+            padding: 10px 15px;
+            background-color: #4ecdc4;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.2s;
+            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .shape-btn:hover {
+            background-color: #45b7af;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .shape-btn.active {
+            background-color: #ff6b6b;
+            transform: translateY(-2px);
+            box-shadow: 0 0 0 2px white, 0 5px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .action-btn {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.2s;
+            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .action-btn.undo {
+            background-color: #ffd166;
+            color: #333;
+        }
+
+        .action-btn.clear {
+            background-color: #ef476f;
+            color: white;
+        }
+
+        .action-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .instructions {
+            margin-top: 20px;
+            background-color: #f8f9fa;
+            border-radius: 15px;
+            padding: 15px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .instructions p {
+            margin-bottom: 10px;
+            color: #555;
+            line-height: 1.5;
+        }
+
+        .game-footer {
+            margin-top: 20px;
+            text-align: center;
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .game-area {
+                flex-direction: column;
+            }
+            
+            .controls {
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+            
+            .control-section {
+                flex: 1;
+                min-width: 200px;
+            }
+        }
+
+        /* Footer */
+        .footer {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 3rem 0 1rem;
+            margin-top: 4rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .footer-section a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+
+        /* Floating Elements */
+        .floating-elements {
+            position: relative;
+            height: 200px;
+            margin-top: 2rem;
+        }
+
+        .floating-item {
+            position: absolute;
+            font-size: 3rem;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .floating-item:nth-child(1) {
+            top: 20px;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .floating-item:nth-child(2) {
+            top: 60px;
+            left: 30%;
+            animation-delay: 0.5s;
+        }
+
+        .floating-item:nth-child(3) {
+            top: 30px;
+            left: 50%;
+            animation-delay: 1s;
+        }
+
+        .floating-item:nth-child(4) {
+            top: 70px;
+            left: 70%;
+            animation-delay: 1.5s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-20px) scale(1.1); }
+        }
+
+        /* Form Styles for AI Storyteller */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: var(--dark);
+        }
+
+        .form-group select,
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border-radius: 10px;
+            border: 2px solid var(--primary);
+            font-size: 1rem;
+            font-family: inherit;
+        }
+
+        .form-group select:focus,
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 3px rgba(18, 136, 7, 0.1);
+        }
+
+        .play-button {
+            background: var(--secondary);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-family: 'Baloo 2', cursive;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .play-button:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .play-button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <div class="logo-icon">🧸</div>
+                <span class="logo-text">Bharatiya Heritage</span>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link active">Home</a>
+                <a href="levels.html" class="nav-link">Levels</a>
+                <a href="admin.html" class="nav-link">Admin</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Explore India's Rich Cultural Heritage And Tradition</h1>
+                <p class="hero-subtitle">An interactive journey through Bharatiya culture, heritage, and tradition designed for young learners aged 1-5 years.</p>
+                <div class="hero-buttons">
+                    <a href="levels.html" class="btn btn-primary">Start Learning</a>
+                    <a href="#about" class="btn btn-secondary">Learn More</a>
+                </div>
+            </div>
+            <div class="floating-elements">
+                <div class="floating-item">🎨</div>
+                <div class="floating-item">📖</div>
+                <div class="floating-item">🎉</div>
+                <div class="floating-item">🎯</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Bharatiya Culture in Play</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Bharatiya Culture, Heritage & Tradition in Play seeks to revive India's heritage of toys by blending tradition with innovation. It inspires participants to design toys rooted in mythology, folk art, festivals, and cultural values.</p>
+                    <p>By reimagining traditional games and highlighting indigenous craftsmanship, the initiative promotes Atmanirbhar Bharat while preserving cultural heritage and showcasing the timeless creativity of Bharatiya culture globally.</p>
+                    <div class="features-grid">
+                        <div class="feature">
+                            <div class="feature-icon">🎯</div>
+                            <h3>Age Appropriate</h3>
+                            <p>Designed specifically for children aged 1-5 years</p>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">🌈</div>
+                            <h3>Interactive Learning</h3>
+                            <p>Engaging activities that make learning fun</p>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">🏛️</div>
+                            <h3>Cultural Heritage</h3>
+                            <p>Preserving and promoting Indian traditions</p>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">🤖</div>
+                            <h3>AI Enhanced</h3>
+                            <p>Smart features powered by AI for personalized learning</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mini Games Section -->
+    <section class="mini-games">
+        <div class="container">
+            <h2 class="section-title">Fun Learning Games</h2>
+            <p class="about-text">Explore our collection of interactive games that make learning about Indian culture fun and engaging for young children.</p>
+            
+            <div class="games-grid">
+                <div class="game-card" data-game="painting">
+                    <div class="game-icon">🎨</div>
+                    <div class="game-info">
+                        <h3 class="game-title">Creative Painting</h3>
+                        <p class="game-description">Draw and create with colorful shapes and patterns</p>
+                    </div>
+                </div>
+                
+                <div class="game-card" data-game="puzzle">
+                    <div class="game-icon">🧩</div>
+                    <div class="game-info">
+                        <h3 class="game-title">Indian Monuments Puzzle</h3>
+                        <p class="game-description">Solve puzzles featuring famous Indian landmarks</p>
+                    </div>
+                </div>
+                
+                <div class="game-card" data-game="memory">
+                    <div class="game-icon">🧠</div>
+                    <div class="game-info">
+                        <h3 class="game-title">Festival Memory Match</h3>
+                        <p class="game-description">Match pairs of cards featuring Indian festivals</p>
+                    </div>
+                </div>
+                
+                <div class="game-card" data-game="coloring">
+                    <div class="game-icon">🖍️</div>
+                    <div class="game-info">
+                        <h3 class="game-title">Traditional Dress Coloring</h3>
+                        <p class="game-description">Color beautiful traditional Indian outfits</p>
+                    </div>
+                </div>
+
+                <!-- AI Storyteller Game Card -->
+                <div class="game-card" data-game="ai-story">
+                    <div class="game-icon">🤖</div>
+                    <div class="game-info">
+                        <h3 class="game-title">AI Storyteller</h3>
+                        <p class="game-description">Generate magical Indian cultural stories with AI</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Game Modal -->
+    <div class="game-modal" id="gameModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="modalGameTitle">Game Title</h2>
+                <button class="close-modal" id="closeModal">&times;</button>
+            </div>
+            <div class="modal-body" id="modalGameContent">
+                <!-- Game content will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Bharatiya Heritage</h3>
+                    <p>Reviving India's cultural heritage through interactive play and learning.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <a href="index.html">Home</a>
+                    <a href="levels.html">Levels</a>
+                    <a href="admin.html">Admin</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>Email: info@bharatiyaheritage.com</p>
+                    <p>Phone: +91 98765 43210</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Bharatiya Culture, Heritage & Tradition in Play. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Game data
+        const games = {
+            painting: {
+                title: "Creative Painting",
+                content: `
+                    <div class="game-container">
+                        <div class="game-header">
+                            <h1 class="game-title">Kids Drawing Canvas</h1>
+                            <p class="game-subtitle">Draw, create, and have fun!</p>
+                        </div>
+                        
+                        <div class="game-area">
+                            <div class="canvas-container">
+                                <canvas id="drawingCanvas" width="600" height="400"></canvas>
+                            </div>
+                            
+                            <div class="controls">
+                                <div class="control-section">
+                                    <h2 class="game-section-title">Colors</h2>
+                                    <div class="colors">
+                                        <div class="color-btn active" style="background-color: black;" data-color="black"></div>
+                                        <div class="color-btn" style="background-color: red;" data-color="red"></div>
+                                        <div class="color-btn" style="background-color: blue;" data-color="blue"></div>
+                                        <div class="color-btn" style="background-color: green;" data-color="green"></div>
+                                        <div class="color-btn" style="background-color: purple;" data-color="purple"></div>
+                                        <div class="color-btn" style="background-color: orange;" data-color="orange"></div>
+                                        <div class="color-btn" style="background-color: yellow;" data-color="yellow"></div>
+                                        <div class="color-btn" style="background-color: pink;" data-color="pink"></div>
+                                    </div>
+                                </div>
+                                
+                                <div class="control-section">
+                                    <h2 class="game-section-title">Shapes</h2>
+                                    <div class="shapes">
+                                        <button class="shape-btn active" data-shape="line">Line</button>
+                                        <button class="shape-btn" data-shape="square">Square</button>
+                                        <button class="shape-btn" data-shape="circle">Circle</button>
+                                        <button class="shape-btn" data-shape="rectangle">Rectangle</button>
+                                        <button class="shape-btn" data-shape="triangle">Triangle</button>
+                                    </div>
+                                </div>
+                                
+                                <div class="control-section">
+                                    <h2 class="game-section-title">Actions</h2>
+                                    <div class="actions">
+                                        <button class="action-btn undo">Undo (U)</button>
+                                        <button class="action-btn clear">Clear Canvas</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="instructions">
+                            <h2 class="game-section-title">How to Play</h2>
+                            <p>1. Select a color from the palette</p>
+                            <p>2. Choose a shape to draw</p>
+                            <p>3. Click and drag on the canvas to draw</p>
+                            <p>4. Use the Undo button to remove your last drawing</p>
+                            <p>5. Use Clear Canvas to start over</p>
+                        </div>
+                        
+                        <div class="game-footer">
+                            <p>Created with ❤️ for creative kids</p>
+                        </div>
+                    </div>
+                `
+            },
+            puzzle: {
+                title: "Indian Monuments Puzzle",
+                content: `
+                    <div class="game-container">
+                        <div class="game-header">
+                            <h1 class="game-title">Indian Monuments Puzzle</h1>
+                            <p class="game-subtitle">Solve puzzles of famous Indian landmarks!</p>
+                        </div>
+                        
+                        <div style="text-align: center; padding: 2rem;">
+                            <div style="font-size: 5rem; margin-bottom: 1rem;">🧩</div>
+                            <h2 style="color: var(--dark); margin-bottom: 1rem;">Coming Soon!</h2>
+                            <p style="color: #666;">We're working on an exciting puzzle game featuring famous Indian monuments like the Taj Mahal, Red Fort, and more!</p>
+                        </div>
+                    </div>
+                `
+            },
+            memory: {
+                title: "Festival Memory Match",
+                content: `
+                    <div class="game-container">
+                        <div class="game-header">
+                            <h1 class="game-title">Festival Memory Match</h1>
+                            <p class="game-subtitle">Match cards featuring Indian festivals!</p>
+                        </div>
+                        
+                        <div style="text-align: center; padding: 2rem;">
+                            <div style="font-size: 5rem; margin-bottom: 1rem;">🧠</div>
+                            <h2 style="color: var(--dark); margin-bottom: 1rem;">Coming Soon!</h2>
+                            <p style="color: #666;">We're creating a fun memory matching game with cards featuring Diwali, Holi, Eid, Christmas, and other Indian festivals!</p>
+                        </div>
+                    </div>
+                `
+            },
+            coloring: {
+                title: "Traditional Dress Coloring",
+                content: `
+                    <div class="game-container">
+                        <div class="game-header">
+                            <h1 class="game-title">Traditional Dress Coloring</h1>
+                            <p class="game-subtitle">Color beautiful traditional Indian outfits!</p>
+                        </div>
+                        
+                        <div style="text-align: center; padding: 2rem;">
+                            <div style="font-size: 5rem; margin-bottom: 1rem;">🖍️</div>
+                            <h2 style="color: var(--dark); margin-bottom: 1rem;">Coming Soon!</h2>
+                            <p style="color: #666;">We're developing a coloring book game with traditional Indian dresses like sarees, dhotis, lehengas, and sherwanis!</p>
+                        </div>
+                    </div>
+                `
+            },
+            "ai-story": {
+                title: "AI Cultural Storyteller",
+                content: `
+                    <div class="game-container">
+                        <div class="game-header">
+                            <h1 class="game-title">AI Cultural Storyteller</h1>
+                            <p class="game-subtitle">Generate magical stories about Indian culture!</p>
+                        </div>
+                        
+                        <div style="padding: 2rem;">
+                            <div class="form-group">
+                                <label>What kind of story would you like?</label>
+                                <select id="storyType">
+                                    <option value="festival">Festival Story</option>
+                                    <option value="mythology">Mythological Tale</option>
+                                    <option value="animal">Animal Story</option>
+                                    <option value="values">Moral Story</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Child's Age</label>
+                                <input type="number" id="storyAge" min="3" max="12" value="5">
+                            </div>
+                            
+                            <button id="generateStoryBtn" class="play-button">
+                                🪄 Generate Story
+                            </button>
+                            
+                            <div id="storyOutput" style="margin-top: 20px; display: none;">
+                                <div style="background: var(--light); padding: 20px; border-radius: 15px; border: 2px dashed var(--primary);">
+                                    <h3 id="storyTitle" style="color: var(--dark); margin-bottom: 15px;"></h3>
+                                    <div id="storyContent" style="line-height: 1.6; font-size: 1.1rem; color: var(--text);"></div>
+                                    <div id="storyMoral" style="margin-top: 15px; padding: 10px; background: white; border-radius: 10px; font-style: italic; color: var(--secondary);"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            }
+        };
+
+        // DOM elements
+        const gameModal = document.getElementById('gameModal');
+        const modalGameTitle = document.getElementById('modalGameTitle');
+        const modalGameContent = document.getElementById('modalGameContent');
+        const closeModal = document.getElementById('closeModal');
+        const gameCards = document.querySelectorAll('.game-card');
+
+        // Open game modal when a game card is clicked
+        gameCards.forEach(card => {
+            card.addEventListener('click', () => {
+                const gameId = card.getAttribute('data-game');
+                const game = games[gameId];
+                
+                if (game) {
+                    modalGameTitle.textContent = game.title;
+                    modalGameContent.innerHTML = game.content;
+                    gameModal.style.display = 'flex';
+                    
+                    // Initialize the specific game
+                    if (gameId === 'painting') {
+                        initializePaintingGame();
+                    } else if (gameId === 'ai-story') {
+                        initializeAIStoryGame();
+                    }
+                }
+            });
+        });
+
+        // Close modal when close button is clicked
+        closeModal.addEventListener('click', () => {
+            gameModal.style.display = 'none';
+        });
+
+        // Close modal when clicking outside the modal content
+        gameModal.addEventListener('click', (e) => {
+            if (e.target === gameModal) {
+                gameModal.style.display = 'none';
+            }
+        });
+
+        // AI Storyteller Game Functionality
+        function initializeAIStoryGame() {
+            const generateBtn = document.getElementById('generateStoryBtn');
+            const storyOutput = document.getElementById('storyOutput');
+            
+            generateBtn.addEventListener('click', async function() {
+                const storyType = document.getElementById('storyType').value;
+                const age = document.getElementById('storyAge').value;
+                
+                if (!storyType || !age) {
+                    alert('Please select a story type and enter age');
+                    return;
+                }
+                
+                generateBtn.disabled = true;
+                generateBtn.textContent = '✨ Generating...';
+                
+                try {
+                    const response = await fetch('http://localhost:3000/api/ai/generate-story', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            theme: storyType,
+                            age: parseInt(age),
+                            culturalFocus: 'Indian culture and values'
+                        })
+                    });
+                    
+                    const result = await response.json();
+                    
+                    if (result.success) {
+                        document.getElementById('storyTitle').textContent = result.story.title;
+                        document.getElementById('storyContent').innerHTML = result.story.content.split('\n').map(para => `<p>${para}</p>`).join('');
+                        document.getElementById('storyMoral').innerHTML = `<strong>Moral:</strong> ${result.story.moral}`;
+                        storyOutput.style.display = 'block';
+                        
+                        // Scroll to story
+                        storyOutput.scrollIntoView({ behavior: 'smooth' });
+                    } else {
+                        alert('Failed to generate story: ' + (result.error || 'Unknown error'));
+                    }
+                } catch (error) {
+                    console.error('Error generating story:', error);
+                    alert('Error generating story. Please check if the server is running and try again.');
+                } finally {
+                    generateBtn.disabled = false;
+                    generateBtn.textContent = '🪄 Generate Story';
+                }
+            });
+        }
+
+        // Painting Game Functionality
+        function initializePaintingGame() {
+            // Canvas setup
+            const canvas = document.getElementById('drawingCanvas');
+            const ctx = canvas.getContext('2d');
+            
+            // State management
+            const state = {
+                start: null,
+                shape: 'line',
+                color: 'black',
+                drawings: [],
+                currentDrawing: null
+            };
+            
+            // Vector class to mimic Python's vector
+            class Vector {
+                constructor(x, y) {
+                    this.x = x;
+                    this.y = y;
+                }
+            }
+            
+            // Drawing functions
+            function drawLine(start, end, color) {
+                ctx.beginPath();
+                ctx.moveTo(start.x, start.y);
+                ctx.lineTo(end.x, end.y);
+                ctx.strokeStyle = color;
+                ctx.lineWidth = 2;
+                ctx.stroke();
+            }
+            
+            function drawSquare(start, end, color) {
+                const dx = end.x - start.x;
+                const dy = end.y - start.y;
+                const side = Math.min(Math.abs(dx), Math.abs(dy));
+                let x = start.x;
+                let y = start.y;
+                if (dx < 0) x -= side;
+                if (dy < 0) y -= side;
+                ctx.beginPath();
+                ctx.rect(x, y, side, side);
+                ctx.fillStyle = color;
+                ctx.fill();
+                ctx.strokeStyle = color;
+                ctx.lineWidth = 2;
+                ctx.stroke();
+            }
+            
+            function drawCircle(start, end, color) {
+                const radius = Math.sqrt(Math.pow(end.x - start.x, 2) + Math.pow(end.y - start.y, 2));
+                ctx.beginPath();
+                ctx.arc(start.x, start.y, radius, 0, Math.PI * 2);
+                ctx.fillStyle = color;
+                ctx.fill();
+                ctx.strokeStyle = color;
+                ctx.lineWidth = 2;
+                ctx.stroke();
+            }
+            
+            function drawRectangle(start, end, color) {
+                const width = end.x - start.x;
+                const height = end.y - start.y;
+                ctx.beginPath();
+                ctx.rect(start.x, start.y, width, height);
+                ctx.fillStyle = color;
+                ctx.fill();
+                ctx.strokeStyle = color;
+                ctx.lineWidth = 2;
+                ctx.stroke();
+            }
+            
+            function drawTriangle(start, end, color) {
+                ctx.beginPath();
+                ctx.moveTo(start.x, start.y);
+                ctx.lineTo(end.x, end.y);
+                ctx.lineTo(start.x * 2 - end.x, end.y);
+                ctx.closePath();
+                ctx.fillStyle = color;
+                ctx.fill();
+                ctx.strokeStyle = color;
+                ctx.lineWidth = 2;
+                ctx.stroke();
+            }
+            
+            // Draw the current shape
+            function drawShape(start, end, shape, color) {
+                switch(shape) {
+                    case 'line':
+                        drawLine(start, end, color);
+                        break;
+                    case 'square':
+                        drawSquare(start, end, color);
+                        break;
+                    case 'circle':
+                        drawCircle(start, end, color);
+                        break;
+                    case 'rectangle':
+                        drawRectangle(start, end, color);
+                        break;
+                    case 'triangle':
+                        drawTriangle(start, end, color);
+                        break;
+                }
+            }
+            
+            // Handle mouse events
+            function handleMouseDown(e) {
+                const rect = canvas.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                state.start = new Vector(x, y);
+                state.currentDrawing = {
+                    shape: state.shape,
+                    color: state.color,
+                    start: {x: x, y: y},
+                    end: null
+                };
+            }
+            
+            function handleMouseMove(e) {
+                if (!state.start) return;
+                
+                const rect = canvas.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                // Redraw all previous drawings
+                redrawCanvas();
+                
+                // Draw the current shape being dragged
+                drawShape(state.start, new Vector(x, y), state.shape, state.color);
+            }
+            
+            function handleMouseUp(e) {
+                if (!state.start) return;
+                
+                const rect = canvas.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                // Save the completed drawing
+                state.currentDrawing.end = {x: x, y: y};
+                state.drawings.push({...state.currentDrawing});
+                
+                state.start = null;
+                state.currentDrawing = null;
+            }
+            
+            // Redraw all saved drawings
+            function redrawCanvas() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                state.drawings.forEach(drawing => {
+                    drawShape(
+                        new Vector(drawing.start.x, drawing.start.y),
+                        new Vector(drawing.end.x, drawing.end.y),
+                        drawing.shape,
+                        drawing.color
+                    );
+                });
+            }
+            
+            // Undo last drawing
+            function undo() {
+                if (state.drawings.length > 0) {
+                    state.drawings.pop();
+                    redrawCanvas();
+                }
+            }
+            
+            // Clear the canvas
+            function clearCanvas() {
+                state.drawings = [];
+                redrawCanvas();
+            }
+            
+            // Event listeners for canvas
+            canvas.addEventListener('mousedown', handleMouseDown);
+            canvas.addEventListener('mousemove', handleMouseMove);
+            canvas.addEventListener('mouseup', handleMouseUp);
+            
+            // Event listeners for color buttons
+            document.querySelectorAll('.color-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    document.querySelector('.color-btn.active').classList.remove('active');
+                    this.classList.add('active');
+                    state.color = this.getAttribute('data-color');
+                });
+            });
+            
+            // Event listeners for shape buttons
+            document.querySelectorAll('.shape-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    document.querySelector('.shape-btn.active').classList.remove('active');
+                    this.classList.add('active');
+                    state.shape = this.getAttribute('data-shape');
+                });
+            });
+            
+            // Event listeners for action buttons
+            document.querySelector('.action-btn.undo').addEventListener('click', undo);
+            document.querySelector('.action-btn.clear').addEventListener('click', clearCanvas);
+            
+            // Keyboard shortcuts
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'u' || e.key === 'U') {
+                    undo();
+                }
+            });
+            
+            // Initialize canvas with a welcome message
+            ctx.font = '24px Comic Sans MS';
+            ctx.fillStyle = '#ff9a9e';
+            ctx.textAlign = 'center';
+            ctx.fillText('Start drawing!', canvas.width/2, canvas.height/2);
+        }
+    </script>
+</body>
+</html>

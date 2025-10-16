@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bharatiya Culture - Levels</title>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700&family=Hind:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #FF9933;
+            --secondary: #128807;
+            --accent: #FFD700;
+            --light: #FFF9E6;
+            --dark: #2E1A0F;
+            --text: #333333;
+            --level1: #FF6B6B;
+            --level2: #4ECDC4;
+            --level3: #FFD166;
+            --level4: #06D6A0;
+            --level5: #118AB2;
+            --level6: #073B4C;
+            --level7: #9B5DE5;
+            --level8: #F15BB5;
+            --level9: #00BBF9;
+            --level10: #00F5D4;
+            --level11: #FB5607;
+            --level12: #8338EC;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Hind', sans-serif;
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Baloo 2', cursive;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        .navbar {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+        }
+
+        .logo-icon {
+            font-size: 2rem;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Levels Page */
+        .levels-page {
+            padding: 2rem 0;
+            min-height: calc(100vh - 200px);
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            color: white;
+        }
+
+        /* Level Map Container */
+        .level-map-container {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 25px;
+            padding: 30px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+            min-height: 500px;
+            border: 2px solid rgba(255, 255, 255, 0.8);
+        }
+
+        .map-title {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.2rem;
+            color: var(--dark);
+            text-shadow: none;
+        }
+
+        /* Floating Bubble Design */
+        .bubble-container {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            margin: 0 auto;
+        }
+
+        .floating-bubble {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 
+                0 8px 20px rgba(0, 0, 0, 0.2),
+                inset 0 -5px 15px rgba(255, 255, 255, 0.3),
+                inset 0 5px 15px rgba(0, 0, 0, 0.1);
+            border: 3px solid rgba(255, 255, 255, 0.5);
+            z-index: 2;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-10px) scale(1.05); }
+        }
+
+        .floating-bubble:hover {
+            transform: scale(1.2);
+            box-shadow: 
+                0 12px 30px rgba(0, 0, 0, 0.3),
+                inset 0 -5px 15px rgba(255, 255, 255, 0.4),
+                inset 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .floating-bubble.completed::after {
+            content: "✓";
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: var(--accent);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            color: var(--dark);
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+            border: 2px solid white;
+        }
+
+        .floating-bubble.locked {
+            cursor: not-allowed;
+            opacity: 0.7;
+            background: #aaa !important;
+            animation: none;
+        }
+
+        .floating-bubble.locked::before {
+            content: "🔒";
+            font-size: 1.8rem;
+        }
+
+        .level-tooltip {
+            position: absolute;
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 10px;
+            font-size: 0.8rem;
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .floating-bubble:hover .level-tooltip {
+            opacity: 1;
+        }
+
+        /* Video Player Section */
+        .video-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            margin-top: 30px;
+            display: none;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.8);
+        }
+
+        .video-section.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .video-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .video-icon {
+            font-size: 2.5rem;
+            margin-right: 20px;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .video-title {
+            font-size: 1.8rem;
+            color: var(--dark);
+            text-shadow: none;
+        }
+
+        .video-description {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            margin-bottom: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .video-player {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .video-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 15px;
+        }
+
+        .play-button {
+            background: var(--secondary);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-family: 'Baloo 2', cursive;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .play-button:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .play-button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+            opacity: 0.6;
+        }
+
+        .video-info {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .info-item {
+            background: var(--light);
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 3rem;
+            color: #666;
+        }
+
+        .empty-state .icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 3rem 0 1rem;
+            margin-top: 4rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .footer-section a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .bubble-container {
+                height: 500px;
+            }
+            
+            .floating-bubble {
+                width: 60px;
+                height: 60px;
+                font-size: 1.2rem;
+            }
+            
+            .video-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .video-icon {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+            
+            .video-controls {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <div class="logo-icon">🧸</div>
+                <span class="logo-text">Bharatiya Heritage</span>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="levels.html" class="nav-link active">Levels</a>
+                <a href="admin.html" class="nav-link">Admin</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Levels Section -->
+    <section class="levels-page">
+        <div class="container">
+            <div class="page-header">
+                <h1>Cultural Learning Journey</h1>
+                <p>Explore different aspects of Indian culture through interactive levels</p>
+            </div>
+
+            <!-- Level Map Container -->
+            <div class="level-map-container">
+                <h2 class="map-title">Cultural Exploration Map</h2>
+                
+                <!-- Floating Bubble Design -->
+                <div class="bubble-container" id="bubbleContainer">
+                    <!-- Levels will be dynamically added here -->
+                </div>
+
+                <!-- Empty State -->
+                <div class="empty-state" id="emptyState">
+                    <div class="icon">📚</div>
+                    <h3>No Levels Available</h3>
+                    <p>Levels haven't been added yet. Please check back later or contact the administrator.</p>
+                    <p><a href="admin.html" style="color: var(--primary); text-decoration: none;">Go to Admin Panel →</a></p>
+                </div>
+            </div>
+
+            <!-- Video Player Section -->
+            <div class="video-section" id="videoSection">
+                <div class="video-header">
+                    <div class="video-icon" id="videoIcon">🎉</div>
+                    <div>
+                        <h3 class="video-title" id="videoTitle">Festivals & Celebrations</h3>
+                        <div id="videoStatus">Status: <span id="statusText">Available</span></div>
+                    </div>
+                </div>
+                
+                <p class="video-description" id="videoDescription">
+                    Explore the vibrant festivals of India through interactive games and activities. Learn about Diwali, Holi, Rakhi, and more!
+                </p>
+                
+                <div class="video-container" id="videoContainer">
+                    <video class="video-player" id="videoPlayer" controls>
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                
+                <div class="video-controls">
+                    <button class="play-button" id="playButton">Play Video</button>
+                    <div class="video-info">
+                        <div class="info-item">⭐ Cultural Points: <span id="culturalPoints">100</span></div>
+                        <div class="info-item">🎁 Unlocks: <span id="unlocks">Next Level</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Bharatiya Heritage</h3>
+                    <p>Reviving India's cultural heritage through interactive play and learning.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <a href="index.html">Home</a>
+                    <a href="levels.html">Levels</a>
+                    <a href="admin.html">Admin</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>Email: info@bharatiyaheritage.com</p>
+                    <p>Phone: +91 98765 43210</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Bharatiya Culture, Heritage & Tradition in Play. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // API base URL
+        const API_BASE = 'http://localhost:3000/api';
+
+        // DOM Elements
+        const bubbleContainer = document.getElementById('bubbleContainer');
+        const emptyState = document.getElementById('emptyState');
+        const videoSection = document.getElementById('videoSection');
+        const videoTitle = document.getElementById('videoTitle');
+        const videoDescription = document.getElementById('videoDescription');
+        const videoIcon = document.getElementById('videoIcon');
+        const videoPlayer = document.getElementById('videoPlayer');
+        const statusText = document.getElementById('statusText');
+        const playButton = document.getElementById('playButton');
+        const culturalPoints = document.getElementById('culturalPoints');
+        const unlocks = document.getElementById('unlocks');
+
+        // Initialize the levels page
+        async function initLevelsPage() {
+            try {
+                console.log('Loading levels...');
+                const levelsResponse = await fetch(`${API_BASE}/levels`);
+                
+                if (!levelsResponse.ok) {
+                    throw new Error(`HTTP error! status: ${levelsResponse.status}`);
+                }
+                
+                const levels = await levelsResponse.json();
+                console.log('Loaded levels:', levels);
+
+                // Show empty state if no levels
+                if (levels.length === 0) {
+                    emptyState.style.display = 'block';
+                    bubbleContainer.style.display = 'none';
+                    return;
+                }
+
+                // Hide empty state and show bubbles
+                emptyState.style.display = 'none';
+                bubbleContainer.style.display = 'block';
+
+                // Clear existing bubbles
+                bubbleContainer.innerHTML = '';
+
+                // Create bubbles for each level in sequential order
+                const bubblePositions = generateSequentialPositions(levels.length);
+                
+                levels.sort((a, b) => a.number - b.number).forEach((level, index) => {
+                    const position = bubblePositions[index];
+                    const bubble = document.createElement('div');
+                    bubble.className = `floating-bubble ${level.status}`;
+                    
+                    bubble.style.top = `${position.y}px`;
+                    bubble.style.left = `${position.x}px`;
+                    bubble.style.backgroundColor = getLevelColor(level.number);
+                    bubble.setAttribute('data-level', level.id);
+                    
+                    // Add animation delay for staggered floating effect
+                    bubble.style.animationDelay = `${index * 0.3}s`;
+                    
+                    bubble.innerHTML = `
+                        <span class="level-number">${level.number}</span>
+                        <div class="level-tooltip">${level.title}</div>
+                    `;
+                    
+                    // Add click event
+                    bubble.addEventListener('click', function() {
+                        if (!this.classList.contains('locked')) {
+                            showLevelDetails(level);
+                        }
+                    });
+                    
+                    bubbleContainer.appendChild(bubble);
+                });
+            } catch (error) {
+                console.error('Error loading levels:', error);
+                emptyState.style.display = 'block';
+                bubbleContainer.style.display = 'none';
+                emptyState.innerHTML = `
+                    <div class="icon">❌</div>
+                    <h3>Error Loading Levels</h3>
+                    <p>Could not connect to server. Please make sure the server is running.</p>
+                    <p>Error: ${error.message}</p>
+                `;
+            }
+        }
+
+        // Generate sequential positions (Level 1, then Level 2, then Level 3, etc.)
+        function generateSequentialPositions(totalLevels) {
+            const positions = [];
+            const containerWidth = 900;
+            const containerHeight = 350;
+            const bubbleSize = 80;
+            const minDistance = bubbleSize + 15; // 15px margin between bubbles
+            
+            // Create a sequential path from left to right, top to bottom
+            const bubblesPerRow = Math.min(4, totalLevels);
+            const rowSpacing = (containerHeight - 100) / Math.ceil(totalLevels / bubblesPerRow);
+            
+            for (let i = 0; i < totalLevels; i++) {
+                const row = Math.floor(i / bubblesPerRow);
+                const col = i % bubblesPerRow;
+                
+                // Calculate position with some randomness for natural look but maintain sequence
+                const baseX = 100 + col * ((containerWidth - 200) / bubblesPerRow);
+                const baseY = 80 + row * rowSpacing;
+                
+                // Add slight random variation to make it look natural but keep the sequence
+                const randomX = baseX + (Math.random() * 40 - 20); // ±20px variation
+                const randomY = baseY + (Math.random() * 30 - 15); // ±15px variation
+                
+                // Ensure bubbles stay within container bounds
+                const x = Math.max(50, Math.min(randomX, containerWidth - bubbleSize - 50));
+                const y = Math.max(50, Math.min(randomY, containerHeight - bubbleSize - 50));
+                
+                positions.push({ x, y });
+            }
+            
+            return positions;
+        }
+
+        // Helper function to get level color
+        function getLevelColor(levelNumber) {
+            const colors = [
+                'var(--level1)', 'var(--level2)', 'var(--level3)', 'var(--level4)', 
+                'var(--level5)', 'var(--level6)', 'var(--level7)', 'var(--level8)',
+                'var(--level9)', 'var(--level10)', 'var(--level11)', 'var(--level12)'
+            ];
+            return colors[(levelNumber - 1) % colors.length];
+        }
+
+        // Show level details and video
+        async function showLevelDetails(level) {
+            try {
+                console.log('Loading details for level:', level);
+                
+                // Find videos for this level
+                const videosResponse = await fetch(`${API_BASE}/videos/level/${level.id}`);
+                
+                if (!videosResponse.ok) {
+                    throw new Error(`HTTP error! status: ${videosResponse.status}`);
+                }
+                
+                const levelVideos = await videosResponse.json();
+                console.log('Loaded videos for level:', levelVideos);
+                
+                // Update level info
+                videoTitle.textContent = level.title;
+                videoDescription.textContent = level.description;
+                videoIcon.textContent = level.icon;
+                videoIcon.style.backgroundColor = getLevelColor(level.number);
+                statusText.textContent = level.status;
+                culturalPoints.textContent = level.points;
+                unlocks.textContent = `Level ${level.number + 1}`;
+                
+                // Update video player
+                if (levelVideos.length > 0) {
+                    const video = levelVideos[0]; // Get first video for this level
+                    console.log('Setting video source for:', video.title);
+                    
+                    // Set the video source directly from base64 data
+                    videoPlayer.src = video.video_data;
+                    videoPlayer.style.display = 'block';
+                    playButton.disabled = false;
+                    playButton.textContent = 'Play Video';
+                    
+                    // Add event listener for when video is loaded
+                    videoPlayer.onloadeddata = function() {
+                        console.log('Video loaded successfully');
+                    };
+                    
+                    videoPlayer.onerror = function(e) {
+                        console.error('Video error:', e);
+                        console.error('Video source:', videoPlayer.src ? 'Set' : 'Not set');
+                        console.error('Video data length:', video.video_data ? video.video_data.length : 'No data');
+                        handleNoVideoAvailable('Video format not supported');
+                    };
+                    
+                } else {
+                    handleNoVideoAvailable('No video available for this level');
+                }
+                
+                // Show video section
+                videoSection.classList.add('active');
+                
+                // Scroll to video section
+                videoSection.scrollIntoView({ behavior: 'smooth' });
+            } catch (error) {
+                console.error('Error loading level details:', error);
+                handleNoVideoAvailable('Error loading video: ' + error.message);
+            }
+        }
+
+        function handleNoVideoAvailable(message = 'No Video Available') {
+            console.warn(message);
+            videoPlayer.src = '';
+            videoPlayer.style.display = 'none';
+            playButton.disabled = true;
+            playButton.textContent = message;
+        }
+
+        // Play button functionality
+        playButton.addEventListener('click', function() {
+            if (videoPlayer.src && videoPlayer.src !== '' && !videoPlayer.paused) {
+                videoPlayer.pause();
+                playButton.textContent = 'Play Video';
+            } else if (videoPlayer.src && videoPlayer.src !== '') {
+                videoPlayer.play().then(() => {
+                    playButton.textContent = 'Pause Video';
+                    console.log('Video started playing');
+                }).catch(error => {
+                    console.error('Error playing video:', error);
+                    playButton.textContent = 'Error Playing Video';
+                    
+                    // Try to get more details about the error
+                    if (error.name === 'NotSupportedError') {
+                        console.error('Video format not supported by browser');
+                    }
+                });
+            }
+        });
+
+        // Video player events
+        videoPlayer.addEventListener('play', function() {
+            playButton.textContent = 'Pause Video';
+        });
+
+        videoPlayer.addEventListener('pause', function() {
+            playButton.textContent = 'Play Video';
+        });
+
+        videoPlayer.addEventListener('ended', function() {
+            playButton.textContent = 'Play Again';
+        });
+
+        videoPlayer.addEventListener('error', function(e) {
+            console.error('Video player error:', e);
+            console.error('Video error details:', videoPlayer.error);
+            playButton.textContent = 'Video Error';
+            playButton.disabled = true;
+        });
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Levels page loaded, initializing...');
+            initLevelsPage();
+        });
+    </script>
+</body>
+</html>
